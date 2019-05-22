@@ -142,7 +142,8 @@ namespace ContextFreeGrammar
         {
             ProgressSplit();
             FindList_End_NotEnd();
-            DeleteInfertility();
+           // DeleteEpxilon();
+            //DeleteInfertility();
 
         }
         //Tìm tập hợp các kí tự kết thúc và không kết thúc
@@ -154,7 +155,7 @@ namespace ContextFreeGrammar
             for (i = 0; i < road.Count; i++)
             {
                 for (j=0; j<road[i].End.Length; j++)
-                    if ( ((int)road[i].End[j] >=97 && (int)road[i].End[j] <=122) || ((int)road[i].End[j] >= 48 && (int)road[i].End[j] <= 58) )
+                    if ( ((int)road[i].End[j] >=97 && (int)road[i].End[j] <=122) || ((int)road[i].End[j] >= 48 && (int)road[i].End[j] <= 58) || road[i].End == "$")
                     {
                         end.Add(road[i].End[j].ToString());
                     }                
@@ -172,7 +173,7 @@ namespace ContextFreeGrammar
 
 
 
-            // lấy ra các kí tự kết thúc
+            // lấy ra các kí tự chưa kết thúc
             for (i = 0; i < road.Count; i++)
             {
                 notEnd.Add(road[i].Start);
@@ -272,7 +273,79 @@ namespace ContextFreeGrammar
                 }
             for (i = 0; i < road.Count; i++) MessageBox.Show(road[i].Start+"->"+road[i].End);
         }
-    }
 
-    
+        //Xóa bỏ sản xuất epxilon
+        public void DeleteEpxilon()
+        {
+            List<string> notEndToEpxilon = new List<string>();
+            int i,j;
+            for (i = 0; i < road.Count; i++)
+                if (road[i].End == "$") notEndToEpxilon.Add(road[i].Start);
+
+            List<Road> roadTg = new List<Road>();
+            // roadTg=road
+            for (i = 0; i < road.Count; i++)
+            {
+                roadTg.Add(road[i]);
+            }
+
+            int kt = 1;
+            int dem = 0;
+            while (kt == 1)
+            {
+                for (i = 0; i < roadTg.Count; i++)
+                {
+                    if (FindElementStringInList(notEndToEpxilon, roadTg[i].End) == 1)
+                    {
+                        notEndToEpxilon.Add(roadTg[i].Start);
+                        roadTg.RemoveAt(i);
+                        i--;
+                        dem++;
+                    }
+                    if (roadTg.Count == 0 || i == -1 || (i == roadTg.Count - 1 && dem == 0))
+                    {
+                        kt = 0;
+                        break;
+                    }
+                }
+                dem = 0;
+            }
+
+            // Sắp xếp để xóa những kí tự liền nhau giống nhau
+            notEndToEpxilon.Sort();
+            // Xóa các kí tự giống nhau trong tập kí tự 
+            for (i = 0; i < notEndToEpxilon.Count - 1; i++)
+                if (notEndToEpxilon[i] == notEndToEpxilon[i + 1])
+                {
+                    notEndToEpxilon.RemoveAt(i);
+                    i--;
+                }
+            // Tìm văn phạm tương ứng không chứa epxilon
+
+            List<Road> a = new List<Road>();
+            List<string> check = new List<string>();
+            Road add = new Road();
+            string s;
+            for (i=0; i<road.Count; i++)
+            {
+                if(FindElementStringInList(notEndToEpxilon, road[i].Start)==1)
+                {
+                    a.Add(road[i]);
+                    add.Start = road[i].Start;
+
+                    for (j = 0; j < road[i].End.Length; j++) 
+                    {
+                        if (FindElementStringInList(notEndToEpxilon, road[i].End[j].ToString()) == 1) check.Add(road[i].End[j].ToString());
+                        else check.Add("");
+                    }
+
+                }
+            }
+           
+        }
+
+
+
+      
+    }  
 }
