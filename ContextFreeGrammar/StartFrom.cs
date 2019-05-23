@@ -15,11 +15,19 @@ namespace ContextFreeGrammar
     {
         public string s;
         public List<Road> road = new List<Road>();
+        List<string> end = new List<string>();
+        List<string> notEnd = new List<string>();
+
         public StartFrom()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }
+<<<<<<< HEAD
         
+=======
+
+
+>>>>>>> 0a5adfeb23eda6427c6a46229c4b3a157136071c
         // Chuẩn hóa chuỗi
         public void ProgressStandardized()
         {
@@ -92,7 +100,7 @@ namespace ContextFreeGrammar
             for (i=0; i<s.Length; i++)
             {
                 if ( ((int)s[i]>=65 && (int)s[i] <=90) || ((int)s[i] >= 97 && (int)s[i] <= 122) || ((int)s[i] >= 48 && (int)s[i] <= 58) ||
-                        (s[i]=='-') || (s[i]=='>') )
+                        (s[i]=='-') || (s[i]=='>') || (s[i]=='$') )
                 {
                     str += s[i].ToString();
                 }
@@ -105,7 +113,7 @@ namespace ContextFreeGrammar
             }
             array[count] = str;
             count++;
-           
+
             for (i=0; i<count; i++)
             {
                 if (array[i] != "" && (array[i].IndexOf('-') < 0))
@@ -120,7 +128,7 @@ namespace ContextFreeGrammar
                     }
                 }
             }
-
+            
             for (i=0; i<count; i++)
             {
                 if (array[i]!="")
@@ -133,14 +141,18 @@ namespace ContextFreeGrammar
                 }
             }
 
+<<<<<<< HEAD
             for (i = 0; i < road.Count; i++)
                 MessageBox.Show(road[i].Start + "->" + road[i].End+"  i="+i);
 
+=======
+>>>>>>> 0a5adfeb23eda6427c6a46229c4b3a157136071c
         }
 
         private void buttonMin_Click(object sender, EventArgs e)
         {
             ProgressSplit();
+<<<<<<< HEAD
             
         }
         public void checkIn(Road r)
@@ -183,6 +195,138 @@ namespace ContextFreeGrammar
             {
                 txtResult.Text += lst[i].Start + "->" + lst[i].End + "\r\n";
             }
+=======
+            FindList_End_NotEnd();
+            DeleteInfertility();
+
+        }
+        //Tìm tập hợp các kí tự kết thúc và không kết thúc
+        public void FindList_End_NotEnd()
+        {
+            int i, j;
+            
+            //Lấy ra các kí tự kết thúc
+            for (i = 0; i < road.Count; i++)
+            {
+                for (j=0; j<road[i].End.Length; j++)
+                    if ( ((int)road[i].End[j] >=97 && (int)road[i].End[j] <=122) || ((int)road[i].End[j] >= 48 && (int)road[i].End[j] <= 58) )
+                    {
+                        end.Add(road[i].End[j].ToString());
+                    }                
+            }
+            // xóa các kí tự trùng nhau
+            end.Sort();
+            for (i = 0; i < end.Count - 1; i++)
+            {
+                if (end[i] == end[i + 1])
+                {
+                    end.RemoveAt(i);
+                    i--;
+                }
+            }
+
+
+
+            // lấy ra các kí tự kết thúc
+            for (i = 0; i < road.Count; i++)
+            {
+                notEnd.Add(road[i].Start);
+                for (j = 0; j < road[i].End.Length; j++)
+                    if ((int)road[i].End[j] >= 65 && (int)road[i].End[j] <= 90)
+                    {
+                        notEnd.Add(road[i].End[j].ToString());
+                    }
+            }
+            notEnd.Sort();
+            for (i = 0; i < notEnd.Count - 1; i++)
+            {
+                if (notEnd[i] == notEnd[i + 1])
+                {
+                    notEnd.RemoveAt(i);
+                    i--;
+                }
+            }
+
+        }
+
+
+        //Phương thức hỗ trợ tìm sự xuất hiện của các phần tử trong chuỗi trong 1 list
+        public int FindElementStringInList(List<string> list, string s)
+        {
+            int i;
+            for (i = 0; i < s.Length; i++)
+            {
+                if (list.Contains(s[i].ToString()) == false) return 0;
+            }
+            return 1;
+        }
+
+        //Xóa bỏ các kí tự vô sinh
+        public void DeleteInfertility()
+        {
+            List<string> tg = new List<string>();
+            List<Road> roadTg = new List<Road>();
+            
+            int i;
+            // roadTg=road
+            for (i=0; i<road.Count; i++)
+            {
+                roadTg.Add(road[i]);
+            }
+
+            // tg = end
+            for (i=0; i<end.Count; i++)
+            {
+                tg.Add(end[i]);
+            }
+
+            int kt = 1;
+            int dem = 0;
+            while (kt==1)
+            {
+                for (i = 0; i < roadTg.Count; i++)
+                {
+                    if (FindElementStringInList(tg, roadTg[i].End) == 1)
+                    {
+                        tg.Add(roadTg[i].Start);
+                        roadTg.RemoveAt(i);
+                        i--;
+                        dem++;
+                    }
+                    if ( roadTg.Count == 0 || i == -1 || (i == roadTg.Count - 1 && dem == 0) )
+                    {
+                        kt = 0;
+                        break;
+                    }
+                }
+                dem = 0;
+            }
+
+            // Sắp xếp để xóa những kí tự liền nhau giống nhau
+            tg.Sort();
+            // Xóa các kí tự giống nhau trong tập kí tự hữu sinh
+            for (i=0; i<tg.Count-1; i++)
+                if (tg[i]==tg[i+1])
+                {
+                    tg.RemoveAt(i);
+                    i--;
+                }
+
+            //Xóa các suy dẫn vô ích trong list road (những suy dẫn chứa kí tự vô sinh)
+            List<string> a = new List<string>();
+            for (i = 0; i < road.Count; i++)
+            {
+                a.Add(road[i].Start + road[i].End);
+            }
+            for (i=0; i<road.Count; i++)
+                if (FindElementStringInList(tg, a[i])==0)
+                {
+                    road.RemoveAt(i);
+                    a.RemoveAt(i);
+                    i--;
+                }
+            for (i = 0; i < road.Count; i++) MessageBox.Show(road[i].Start+"->"+road[i].End);
+>>>>>>> 0a5adfeb23eda6427c6a46229c4b3a157136071c
         }
 
         
