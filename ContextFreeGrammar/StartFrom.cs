@@ -19,7 +19,7 @@ namespace ContextFreeGrammar
         {
             InitializeComponent();
         }
-
+        
         // Chuẩn hóa chuỗi
         public void ProgressStandardized()
         {
@@ -64,6 +64,7 @@ namespace ContextFreeGrammar
         private void textBoxInput_TextChanged(object sender, EventArgs e)
         {
             ProgressStandardized();
+            
         }
 
 
@@ -107,7 +108,7 @@ namespace ContextFreeGrammar
            
             for (i=0; i<count; i++)
             {
-                if (array[i] != "" && ((int)array[i][0] < 65 || (int)array[i][0] > 90))
+                if (array[i] != "" && (array[i].IndexOf('-') < 0))
                 {
                     for (j = i; j >= 0; j--)
                     {
@@ -126,20 +127,65 @@ namespace ContextFreeGrammar
                 {
                     Road roadTg = new Road();
                     roadTg.Start = array[i].Substring(0, array[i].IndexOf('-'));
-                    roadTg.End = array[i].Substring(array[i].IndexOf('-')+2);
+                    
+                    roadTg.End = array[i].Substring(array[i].IndexOf("-")+2);
                     road.Add(roadTg);
                 }
             }
 
             for (i = 0; i < road.Count; i++)
-                MessageBox.Show(road[i].Start + "->" + road[i].End);
+                MessageBox.Show(road[i].Start + "->" + road[i].End+"  i="+i);
 
         }
 
         private void buttonMin_Click(object sender, EventArgs e)
         {
             ProgressSplit();
+            
         }
+        public void checkIn(Road r)
+        {
+            r.SetValid(true);
+
+            for (int j = 0; j < road.Count; j++)
+            {
+                if (r.End.Contains(road[j].Start) && road[j].isVaLid() == false)
+                {
+                    
+                    checkIn(road[j]);
+                }
+            }
+        }
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < road.Count; i++)
+                road[i].SetValid(false);
+
+            for (int i = 0; i < road.Count; i++)
+            {
+                if (road[i].Start.Contains("S") && road[i].isVaLid() == false)
+                { 
+                    checkIn(road[i]);
+                }
+            }
+
+            // Xóa đi các phần tử false trong list:
+
+            List<Road> lst = road.OrderByDescending(n => n.isVaLid().ToString()).ToList();
+            int totalRoad = lst.Count;
+            int falseRoad = lst.Where(n => n.isVaLid() == false).Count();
+            int nDelete = totalRoad - falseRoad;
+            lst.RemoveRange(nDelete, falseRoad);
+           
+            // hiển thị list mới lên textbox
+            for (int i = 0; i < lst.Count; i++)
+            {
+                txtResult.Text += lst[i].Start + "->" + lst[i].End + "\r\n";
+            }
+        }
+
+        
     }
 
     
