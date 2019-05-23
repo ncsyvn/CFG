@@ -1,0 +1,4 @@
+S->ABC
+A->BB|$
+B->CC|a
+C->AA|b
