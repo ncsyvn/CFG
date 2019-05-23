@@ -142,7 +142,8 @@ namespace ContextFreeGrammar
         {
             ProgressSplit();
             FindList_End_NotEnd();
-            DeleteInfertility();
+            //DeleteInfertility();
+            ConvertToChomsky();
 
         }
         //Tìm tập hợp các kí tự kết thúc và không kết thúc
@@ -270,7 +271,130 @@ namespace ContextFreeGrammar
                     a.RemoveAt(i);
                     i--;
                 }
-            for (i = 0; i < road.Count; i++) MessageBox.Show(road[i].Start+"->"+road[i].End);
+        }
+
+        public void ConvertToChomsky()
+        {
+            // Tạo tập hợp các kí tự chưa kết thúc từ A đến Z
+            List<string> Aggregate = new List<string>();
+            int i, j;
+            for (i = 65; i <= 90; i++) Aggregate.Add(Convert.ToChar(i).ToString());
+            for (i = 65; i <= 90; i++) Aggregate.Add(Convert.ToChar(i).ToString() + "1");
+            for (i = 0; i < notEnd.Count; i++)
+            {
+                for (j = 0; j < Aggregate.Count; j++)
+                {
+                    if (Aggregate[j] == notEnd[i])
+                    {
+                        Aggregate.RemoveAt(j);
+                        break;
+                    }
+                }
+            }
+
+            // Bước 1: Lấy ra các suy dẫn đã thỏa mãn Chomsky (A->AB, A->a)
+            List<Road> chomsky = new List<Road>();
+            List<Road> newRoad = new List<Road>();
+            for (i = 0; i < road.Count; i++) newRoad.Add(road[i]);
+            for (i = 0; i < newRoad.Count; i++)
+            {
+                if (newRoad[i].End.Length == 2 &&
+                    (int)newRoad[i].End[0] >= 65 && (int)newRoad[i].End[0] <= 90 &&
+                    (int)newRoad[i].End[1] >= 65 && (int)newRoad[i].End[1] <= 90)
+                {
+                    chomsky.Add(newRoad[i]);
+                    newRoad.RemoveAt(i);
+                    i--;
+                }
+
+                else if (newRoad[i].End.Length == 1 && (int)newRoad[i].End[0] >= 97 && (int)newRoad[i].End[0] <= 122)
+                {
+                    chomsky.Add(newRoad[i]);
+                    newRoad.RemoveAt(i);
+                    i--;
+                }
+            }
+
+
+            string sNew = "";
+            for (i = 0; i < chomsky.Count; i++) sNew = sNew + chomsky[i].Start+"->"+chomsky[i].End+ System.Environment.NewLine;
+            textBoxStep1ChomskyNew.Text = sNew;
+            string sOld = "";
+            for (i = 0; i < newRoad.Count; i++) sOld = sOld + newRoad[i].Start + "->" + newRoad[i].End+ System.Environment.NewLine;
+            textBoxStep1ChomskyOld.Text = sOld;
+            
+
+            // Bước 2: đổi hết kí tự kết thúc bằng kí hiệu chưa kết thúc, tạo các suy dẫn mới đến kí hiệu kết thúc
+            Road roadTg = new Road();
+            for (i = 0; i < newRoad.Count; i++)
+            {
+                for (j = 0; j < newRoad[i].End.Length; j++)
+                {
+                    if (((int)newRoad[i].End[j] >= 97 && (int)newRoad[i].End[j] <= 122) ||
+                       ((int)newRoad[i].End[j] >= 48 && (int)newRoad[i].End[j] <= 57) ||
+                       (newRoad[i].End[j] == '$'))
+                    {
+                        roadTg = new Road();
+                        roadTg.Start = Aggregate[0];
+                        roadTg.End = newRoad[i].End[j].ToString();
+                        chomsky.Add(roadTg);
+
+                        newRoad[i].End = newRoad[i].End.Remove(j, 1);
+                        newRoad[i].End = newRoad[i].End.Insert(j, Aggregate[0]);
+
+                        Aggregate.RemoveAt(0);
+
+                    }
+                }
+            }
+            sNew = "";
+            for (i = 0; i < chomsky.Count; i++) sNew = sNew + chomsky[i].Start + "->" + chomsky[i].End + System.Environment.NewLine;
+            textBoxStep2ChomskyNew.Text = sNew;
+            sOld = "";
+            for (i = 0; i < newRoad.Count; i++) sOld = sOld + newRoad[i].Start + "->" + newRoad[i].End + System.Environment.NewLine;
+            textBoxStep2ChomskyOld.Text = sOld;
+
+
+
+            // Bước 3: Xử lý rút gọn khi end.length>2
+            for (i = 0; i < newRoad.Count; i++)
+            {
+                while (newRoad[i].End.Length>2)
+                {
+
+                    roadTg = new Road();
+                    roadTg.Start = road[i].Start;
+                    roadTg.End = road[i].End[0].ToString() + Aggregate[0];
+                    chomsky.Add(roadTg);
+
+                    newRoad[i].Start = Aggregate[0];
+                    newRoad[i].End = newRoad[i].End.Remove(0, 1);
+
+                    Aggregate.RemoveAt(0);
+                }
+                chomsky.Add(newRoad[i]);
+                //newRoad.RemoveAt(i);
+            }
+            sNew = "";
+            for (i = 0; i < chomsky.Count; i++) sNew = sNew + chomsky[i].Start + "->" + chomsky[i].End + System.Environment.NewLine;
+            textBoxStep3ChomskyNew.Text = sNew;
+            sOld = "";
+            for (i = 0; i < newRoad.Count; i++) sOld = sOld + newRoad[i].Start + "->" + newRoad[i].End + System.Environment.NewLine;
+            textBoxStep3ChomskyOld.Text = "";
+
+        }
+
+        private void Chomsky_Click(object sender, EventArgs e)
+        {
+            if (textBoxStandardized.Text == "")
+            {
+                MessageBox.Show("Input is null");
+                s = "";
+            }
+            ProgressSplit();
+            FindList_End_NotEnd();
+            //DeleteInfertility();
+            ConvertToChomsky();
         }
     }
 
