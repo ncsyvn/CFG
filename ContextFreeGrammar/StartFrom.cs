@@ -142,10 +142,10 @@ namespace ContextFreeGrammar
         {
             ProgressSplit();
             FindList_End_NotEnd();
-            //DeleteInfertility();
-            ConvertToChomsky();
+            DeleteInfertility();
 
         }
+
         //Tìm tập hợp các kí tự kết thúc và không kết thúc
         public void FindList_End_NotEnd()
         {
@@ -193,6 +193,12 @@ namespace ContextFreeGrammar
                 }
             }
 
+            //gán textBoxStep1Min.Text = chuỗi kí tự kết thúc.
+            string s = "";
+            for (i = 0; i < end.Count-1; i++) s = s + end[i] + "; ";
+            s = s + end[end.Count-1];
+            s = "{" + s + "}";
+            textBoxStep1Min.Text = s;            
         }
 
 
@@ -257,6 +263,13 @@ namespace ContextFreeGrammar
                     tg.RemoveAt(i);
                     i--;
                 }
+            //gán textBoxStep2Min.Text = chuỗi kí tự thỏa mãn.
+            string s = "";
+            for (i = 0; i < tg.Count - 1; i++) s = s + tg[i] + "; ";
+            s = s + tg[tg.Count - 1];
+            s = "{" + s + "}";
+            textBoxStep2Min.Text = s;
+
 
             //Xóa các suy dẫn vô ích trong list road (những suy dẫn chứa kí tự vô sinh)
             List<string> a = new List<string>();
@@ -271,6 +284,12 @@ namespace ContextFreeGrammar
                     a.RemoveAt(i);
                     i--;
                 }
+
+            // Đưa dữ liệu vào textBoxStep3Min.TExt
+            string sNew = "";
+            for (i = 0; i < road.Count; i++) sNew = sNew + road[i].Start + "->" + road[i].End + System.Environment.NewLine;
+            textBoxStep3Min.Text = sNew;
+
         }
 
         public void ConvertToChomsky()
@@ -395,6 +414,11 @@ namespace ContextFreeGrammar
             FindList_End_NotEnd();
             //DeleteInfertility();
             ConvertToChomsky();
+        }
+
+        private void StartFrom_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
