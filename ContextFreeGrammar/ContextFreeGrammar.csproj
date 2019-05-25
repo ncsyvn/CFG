@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Guide Form\GuideChomsky.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guide Form\GuideChomsky.Designer.cs">
+      <DependentUpon>GuideChomsky.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guide Form\GuideEpxilon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guide Form\GuideEpxilon.Designer.cs">
+      <DependentUpon>GuideEpxilon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guide Form\GuideInfertility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Guide Form\GuideInfertility.Designer.cs">
+      <DependentUpon>GuideInfertility.cs</DependentUpon>
+    </Compile>
     <Compile Include="Road.cs" />
     <Compile Include="StartFrom.cs">
       <SubType>Form</SubType>
@@ -55,6 +73,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Guide Form\GuideChomsky.resx">
+      <DependentUpon>GuideChomsky.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guide Form\GuideEpxilon.resx">
+      <DependentUpon>GuideEpxilon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Guide Form\GuideInfertility.resx">
+      <DependentUpon>GuideInfertility.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +90,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="StartFrom.resx">
       <DependentUpon>StartFrom.cs</DependentUpon>
@@ -79,6 +107,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chomsky1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guideChomsky1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guideChomsky2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guideChomsky3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guideChomsky4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guideInfertility1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guideInfertility2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guideInfertility3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guideInfertility4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guideEpxilon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guideEpxilon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guideEpxilon3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
