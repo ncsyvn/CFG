@@ -163,6 +163,30 @@ namespace ContextFreeGrammar
             }
         }
 
+        public List<Road> RemoveUnitProduct(List<Road> lst)
+        {
+            List<Road> List = lst;
+            List<Road> List2 = new List<Road>();
+            List<string> LayKiTuKhongKetThuc = new List<string>();
+            for(int i = 0; i < List.Count - 1; i++)
+            {
+                for(int j = i + 1; j < List.Count; j++)
+                {
+                    if(List[i].End.CompareTo(List[j].Start) == 0)
+                    {
+                        Road r = new Road();
+                        r.Start = List[i].Start;
+                        r.End = List[j].End;
+                        List2.Add(r);
+                    }
+                }
+            }
+
+            return List2;
+            
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < road.Count; i++)
@@ -332,7 +356,7 @@ namespace ContextFreeGrammar
 
 
 
-        //  chuẩn hóa GNF
+        //  chuẩn hóa GNF---------------------------------------
         
         public List<string> getNotEnd()
         {
@@ -529,6 +553,7 @@ namespace ContextFreeGrammar
             List2 = LoaiBoDeQuiTrai(List2);
             List2 = List2.OrderByDescending(n=>n.Start).ToList();
             List2 = LoaiBoLuatSinhTrungNhau(List2);
+            List2 = ThayTheVeDangGNF(List2);
             List2 = ThayTheVeDangGNF(List2);
             List2 = LoaiBoLuatSinhTrungNhau(List2);
            
