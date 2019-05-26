@@ -38,6 +38,8 @@
             this.buttonMin = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.txtResult = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txtGNF = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBoxInput
@@ -131,11 +133,32 @@
             this.txtResult.Size = new System.Drawing.Size(127, 111);
             this.txtResult.TabIndex = 10;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(345, 302);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txtGNF
+            // 
+            this.txtGNF.Location = new System.Drawing.Point(542, 269);
+            this.txtGNF.Multiline = true;
+            this.txtGNF.Name = "txtGNF";
+            this.txtGNF.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtGNF.Size = new System.Drawing.Size(127, 111);
+            this.txtGNF.TabIndex = 12;
+            // 
             // StartFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtGNF);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.txtResult);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonMin);
@@ -164,6 +187,8 @@
         private System.Windows.Forms.Button buttonMin;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtGNF;
     }
 }
 
