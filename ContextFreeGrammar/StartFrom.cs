@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+
 
 namespace ContextFreeGrammar
 {
@@ -167,47 +169,78 @@ namespace ContextFreeGrammar
         {
             List<Road> List = lst;
             List<Road> List2 = new List<Road>();
+            List<string> RemoveList = new List<string>();
             List<string> LayKiTuKhongKetThuc = new List<string>();
+          
+
+            foreach(var item in List)
+            {
+                LayKiTuKhongKetThuc.Add(item.Start);
+            }
             for(int i = 0; i < List.Count - 1; i++)
             {
                 for(int j = i + 1; j < List.Count; j++)
                 {
-                    if(List[i].End.CompareTo(List[j].Start) == 0)
+                    if (List[i].End.CompareTo(List[j].Start) == 0  /*&& Regex.IsMatch(regex,List[j].End)*/)
                     {
+                        RemoveList.Add(List[i].End);
                         Road r = new Road();
                         r.Start = List[i].Start;
                         r.End = List[j].End;
                         List2.Add(r);
+
+
+                        List<string> LayDanXuatLan2 = new List<string>();
+                        LayDanXuatLan2 = getEndbyStart(List[j].End, List);
+                        foreach (var it in LayDanXuatLan2)
+                        {
+                            Road r2 = new Road();
+                            r2.Start = List[i].Start;
+                            r2.End = it;
+                            List2.Add(r2);
+                        }
                     }
                 }
             }
+            foreach(var item in List2)
+            {
+                List.Add(item);
+            }
 
-            return List2;
+            //List = RemoveUnitProduct(List);
+            foreach (var item in RemoveList)
+            {
+                List.RemoveAll(n => n.End.CompareTo(item) == 0);
+                
+            }
+            return List = List.OrderBy(n=>n.Start).ToList();
             
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < road.Count; i++)
-                road[i].SetValid(false);
+            //for (int i = 0; i < road.Count; i++)
+            //    road[i].SetValid(false);
 
-            for (int i = 0; i < road.Count; i++)
-            {
-                if (road[i].Start.Contains("S") && road[i].isVaLid() == false)
-                {
-                    checkIn(road[i]);
-                }
-            }
+            //for (int i = 0; i < road.Count; i++)
+            //{
+            //    if (road[i].Start.Contains("S") && road[i].isVaLid() == false)
+            //    {
+            //        checkIn(road[i]);
+            //    }
+            //}
 
-            // Xóa đi các phần tử false trong list:
+            //// Xóa đi các phần tử false trong list:
 
-            List<Road> lst = road.OrderByDescending(n => n.isVaLid().ToString()).ToList();
-            int totalRoad = lst.Count;
-            int falseRoad = lst.Where(n => n.isVaLid() == false).Count();
-            int nDelete = totalRoad - falseRoad;
-            lst.RemoveRange(nDelete, falseRoad);
+            //List<Road> lst = road.OrderByDescending(n => n.isVaLid().ToString()).ToList();
+            //int totalRoad = lst.Count;
+            //int falseRoad = lst.Where(n => n.isVaLid() == false).Count();
+            //int nDelete = totalRoad - falseRoad;
+            //lst.RemoveRange(nDelete, falseRoad);
 
+
+            List<Road> lst = RemoveUnitProduct(road);
             // hiển thị list mới lên textbox
             for (int i = 0; i < lst.Count; i++)
             {
