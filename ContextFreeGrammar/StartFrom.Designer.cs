@@ -35,13 +35,12 @@
             this.textBoxFilePath = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonOpenFile = new System.Windows.Forms.Button();
-            this.buttonMin = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtResult = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Greibach = new System.Windows.Forms.Button();
             this.txtGNF = new System.Windows.Forms.TextBox();
             this.Chomsky = new System.Windows.Forms.Button();
             this.panelChomsky = new System.Windows.Forms.Panel();
+            this.guideChomsky = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -62,9 +61,10 @@
             this.textBoxStep1ChomskyOld = new System.Windows.Forms.TextBox();
             this.textBoxStep1ChomskyNew = new System.Windows.Forms.TextBox();
             this.panelInput = new System.Windows.Forms.Panel();
-            this.Greibach = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.panelLoaiVoSinh = new System.Windows.Forms.Panel();
+            this.Run1 = new System.Windows.Forms.Button();
+            this.guideInfertility = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -76,7 +76,12 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelLoaiEpxilon = new System.Windows.Forms.Panel();
+            this.Run2 = new System.Windows.Forms.Button();
+            this.guideEpxilon = new System.Windows.Forms.Button();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -88,22 +93,30 @@
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.guideChomsky = new System.Windows.Forms.Button();
-            this.guideInfertility = new System.Windows.Forms.Button();
-            this.guideEpxilon = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label36 = new System.Windows.Forms.Label();
+            this.panelLoaiTuS = new System.Windows.Forms.Panel();
+            this.Run3 = new System.Windows.Forms.Button();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Run4 = new System.Windows.Forms.Button();
+            this.label38 = new System.Windows.Forms.Label();
+            this.textRun4 = new System.Windows.Forms.TextBox();
+            this.Refresh = new System.Windows.Forms.Button();
             this.panelChomsky.SuspendLayout();
             this.panelInput.SuspendLayout();
             this.panelLoaiVoSinh.SuspendLayout();
+            this.panelLoaiEpxilon.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panelLoaiTuS.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxInput
             // 
             this.textBoxInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInput.Location = new System.Drawing.Point(86, 37);
+            this.textBoxInput.Location = new System.Drawing.Point(83, 43);
             this.textBoxInput.Multiline = true;
             this.textBoxInput.Name = "textBoxInput";
             this.textBoxInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -114,7 +127,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 79);
+            this.label1.Location = new System.Drawing.Point(8, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 1;
@@ -123,7 +136,7 @@
             // textBoxStandardized
             // 
             this.textBoxStandardized.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxStandardized.Location = new System.Drawing.Point(86, 207);
+            this.textBoxStandardized.Location = new System.Drawing.Point(83, 213);
             this.textBoxStandardized.Multiline = true;
             this.textBoxStandardized.Name = "textBoxStandardized";
             this.textBoxStandardized.ReadOnly = true;
@@ -134,7 +147,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 251);
+            this.label2.Location = new System.Drawing.Point(8, 257);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 4;
@@ -142,7 +155,7 @@
             // 
             // textBoxFilePath
             // 
-            this.textBoxFilePath.Location = new System.Drawing.Point(86, 173);
+            this.textBoxFilePath.Location = new System.Drawing.Point(83, 179);
             this.textBoxFilePath.Name = "textBoxFilePath";
             this.textBoxFilePath.Size = new System.Drawing.Size(239, 20);
             this.textBoxFilePath.TabIndex = 5;
@@ -150,7 +163,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(37, 176);
+            this.label3.Location = new System.Drawing.Point(34, 182);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 6;
@@ -158,7 +171,7 @@
             // 
             // buttonOpenFile
             // 
-            this.buttonOpenFile.Location = new System.Drawing.Point(346, 173);
+            this.buttonOpenFile.Location = new System.Drawing.Point(343, 179);
             this.buttonOpenFile.Name = "buttonOpenFile";
             this.buttonOpenFile.Size = new System.Drawing.Size(62, 23);
             this.buttonOpenFile.TabIndex = 7;
@@ -166,56 +179,37 @@
             this.buttonOpenFile.UseVisualStyleBackColor = true;
             this.buttonOpenFile.Click += new System.EventHandler(this.buttonOpenFile_Click);
             // 
-            // buttonMin
-            // 
-            this.buttonMin.Location = new System.Drawing.Point(116, 342);
-            this.buttonMin.Name = "buttonMin";
-            this.buttonMin.Size = new System.Drawing.Size(75, 23);
-            this.buttonMin.TabIndex = 8;
-            this.buttonMin.Text = "Min";
-            this.buttonMin.UseVisualStyleBackColor = true;
-            this.buttonMin.Click += new System.EventHandler(this.buttonMin_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(345, 122);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // txtResult
             // 
-            this.txtResult.Location = new System.Drawing.Point(542, 33);
+            this.txtResult.Location = new System.Drawing.Point(61, 83);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResult.Size = new System.Drawing.Size(127, 111);
+            this.txtResult.Size = new System.Drawing.Size(127, 149);
             this.txtResult.TabIndex = 10;
             // 
-            // button2
+            // Greibach
             // 
-            this.button2.Location = new System.Drawing.Point(345, 302);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Greibach.Location = new System.Drawing.Point(250, 342);
+            this.Greibach.Name = "Greibach";
+            this.Greibach.Size = new System.Drawing.Size(75, 23);
+            this.Greibach.TabIndex = 11;
+            this.Greibach.Text = "Greibach";
+            this.Greibach.UseVisualStyleBackColor = true;
+            this.Greibach.Click += new System.EventHandler(this.Greibach_Click);
             // 
             // txtGNF
             // 
-            this.txtGNF.Location = new System.Drawing.Point(542, 269);
+            this.txtGNF.Location = new System.Drawing.Point(112, 56);
             this.txtGNF.Multiline = true;
             this.txtGNF.Name = "txtGNF";
             this.txtGNF.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtGNF.Size = new System.Drawing.Size(127, 111);
+            this.txtGNF.Size = new System.Drawing.Size(186, 307);
             this.txtGNF.TabIndex = 12;
+            // 
             // Chomsky
             // 
-            this.Chomsky.Location = new System.Drawing.Point(216, 342);
+            this.Chomsky.Location = new System.Drawing.Point(143, 342);
             this.Chomsky.Name = "Chomsky";
             this.Chomsky.Size = new System.Drawing.Size(75, 23);
             this.Chomsky.TabIndex = 9;
@@ -246,10 +240,20 @@
             this.panelChomsky.Controls.Add(this.textBoxStep2ChomskyNew);
             this.panelChomsky.Controls.Add(this.textBoxStep1ChomskyOld);
             this.panelChomsky.Controls.Add(this.textBoxStep1ChomskyNew);
-            this.panelChomsky.Location = new System.Drawing.Point(514, 18);
+            this.panelChomsky.Location = new System.Drawing.Point(498, 18);
             this.panelChomsky.Name = "panelChomsky";
             this.panelChomsky.Size = new System.Drawing.Size(427, 378);
             this.panelChomsky.TabIndex = 10;
+            // 
+            // guideChomsky
+            // 
+            this.guideChomsky.Location = new System.Drawing.Point(9, 352);
+            this.guideChomsky.Name = "guideChomsky";
+            this.guideChomsky.Size = new System.Drawing.Size(75, 23);
+            this.guideChomsky.TabIndex = 19;
+            this.guideChomsky.Text = "Guide";
+            this.guideChomsky.UseVisualStyleBackColor = true;
+            this.guideChomsky.Click += new System.EventHandler(this.guideChomsky_Click);
             // 
             // label14
             // 
@@ -433,30 +437,20 @@
             // panelInput
             // 
             this.panelInput.BackColor = System.Drawing.Color.PeachPuff;
-            this.panelInput.Controls.Add(this.Greibach);
             this.panelInput.Controls.Add(this.label7);
+            this.panelInput.Controls.Add(this.Greibach);
+            this.panelInput.Controls.Add(this.Chomsky);
             this.panelInput.Controls.Add(this.textBoxInput);
             this.panelInput.Controls.Add(this.label1);
-            this.panelInput.Controls.Add(this.Chomsky);
-            this.panelInput.Controls.Add(this.textBoxStandardized);
-            this.panelInput.Controls.Add(this.buttonMin);
-            this.panelInput.Controls.Add(this.label2);
             this.panelInput.Controls.Add(this.buttonOpenFile);
-            this.panelInput.Controls.Add(this.textBoxFilePath);
+            this.panelInput.Controls.Add(this.textBoxStandardized);
             this.panelInput.Controls.Add(this.label3);
-            this.panelInput.Location = new System.Drawing.Point(32, 19);
+            this.panelInput.Controls.Add(this.label2);
+            this.panelInput.Controls.Add(this.textBoxFilePath);
+            this.panelInput.Location = new System.Drawing.Point(32, 18);
             this.panelInput.Name = "panelInput";
             this.panelInput.Size = new System.Drawing.Size(431, 377);
             this.panelInput.TabIndex = 11;
-            // 
-            // Greibach
-            // 
-            this.Greibach.Location = new System.Drawing.Point(311, 343);
-            this.Greibach.Name = "Greibach";
-            this.Greibach.Size = new System.Drawing.Size(75, 23);
-            this.Greibach.TabIndex = 13;
-            this.Greibach.Text = "Greibach";
-            this.Greibach.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -472,6 +466,7 @@
             // panelLoaiVoSinh
             // 
             this.panelLoaiVoSinh.BackColor = System.Drawing.Color.PeachPuff;
+            this.panelLoaiVoSinh.Controls.Add(this.Run1);
             this.panelLoaiVoSinh.Controls.Add(this.guideInfertility);
             this.panelLoaiVoSinh.Controls.Add(this.label17);
             this.panelLoaiVoSinh.Controls.Add(this.label19);
@@ -486,8 +481,28 @@
             this.panelLoaiVoSinh.Controls.Add(this.label22);
             this.panelLoaiVoSinh.Location = new System.Drawing.Point(32, 425);
             this.panelLoaiVoSinh.Name = "panelLoaiVoSinh";
-            this.panelLoaiVoSinh.Size = new System.Drawing.Size(348, 271);
+            this.panelLoaiVoSinh.Size = new System.Drawing.Size(350, 271);
             this.panelLoaiVoSinh.TabIndex = 12;
+            // 
+            // Run1
+            // 
+            this.Run1.Location = new System.Drawing.Point(83, 245);
+            this.Run1.Name = "Run1";
+            this.Run1.Size = new System.Drawing.Size(54, 23);
+            this.Run1.TabIndex = 33;
+            this.Run1.Text = "Run";
+            this.Run1.UseVisualStyleBackColor = true;
+            this.Run1.Click += new System.EventHandler(this.Run1_Click);
+            // 
+            // guideInfertility
+            // 
+            this.guideInfertility.Location = new System.Drawing.Point(2, 245);
+            this.guideInfertility.Name = "guideInfertility";
+            this.guideInfertility.Size = new System.Drawing.Size(75, 23);
+            this.guideInfertility.TabIndex = 20;
+            this.guideInfertility.Text = "Guide";
+            this.guideInfertility.UseVisualStyleBackColor = true;
+            this.guideInfertility.Click += new System.EventHandler(this.guideInfertility_Click);
             // 
             // label17
             // 
@@ -592,28 +607,76 @@
             this.label22.TabIndex = 24;
             this.label22.Text = "Bước 1";
             // 
-            // panel1
+            // panelLoaiEpxilon
             // 
-            this.panel1.BackColor = System.Drawing.Color.PeachPuff;
-            this.panel1.Controls.Add(this.guideEpxilon);
-            this.panel1.Controls.Add(this.label33);
-            this.panel1.Controls.Add(this.label32);
-            this.panel1.Controls.Add(this.label31);
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.label21);
-            this.panel1.Controls.Add(this.label25);
-            this.panel1.Controls.Add(this.textBoxStep3Epxilon);
-            this.panel1.Controls.Add(this.label26);
-            this.panel1.Controls.Add(this.textBoxStep1Epxilon);
-            this.panel1.Controls.Add(this.textBoxStep2Epxilon);
-            this.panel1.Controls.Add(this.label27);
-            this.panel1.Controls.Add(this.label28);
-            this.panel1.Controls.Add(this.label29);
-            this.panel1.Controls.Add(this.label30);
-            this.panel1.Location = new System.Drawing.Point(407, 425);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(348, 271);
-            this.panel1.TabIndex = 33;
+            this.panelLoaiEpxilon.BackColor = System.Drawing.Color.PeachPuff;
+            this.panelLoaiEpxilon.Controls.Add(this.Run2);
+            this.panelLoaiEpxilon.Controls.Add(this.guideEpxilon);
+            this.panelLoaiEpxilon.Controls.Add(this.label33);
+            this.panelLoaiEpxilon.Controls.Add(this.label32);
+            this.panelLoaiEpxilon.Controls.Add(this.label31);
+            this.panelLoaiEpxilon.Controls.Add(this.label20);
+            this.panelLoaiEpxilon.Controls.Add(this.label21);
+            this.panelLoaiEpxilon.Controls.Add(this.label25);
+            this.panelLoaiEpxilon.Controls.Add(this.textBoxStep3Epxilon);
+            this.panelLoaiEpxilon.Controls.Add(this.label26);
+            this.panelLoaiEpxilon.Controls.Add(this.textBoxStep1Epxilon);
+            this.panelLoaiEpxilon.Controls.Add(this.textBoxStep2Epxilon);
+            this.panelLoaiEpxilon.Controls.Add(this.label27);
+            this.panelLoaiEpxilon.Controls.Add(this.label28);
+            this.panelLoaiEpxilon.Controls.Add(this.label29);
+            this.panelLoaiEpxilon.Controls.Add(this.label30);
+            this.panelLoaiEpxilon.Location = new System.Drawing.Point(403, 426);
+            this.panelLoaiEpxilon.Name = "panelLoaiEpxilon";
+            this.panelLoaiEpxilon.Size = new System.Drawing.Size(344, 271);
+            this.panelLoaiEpxilon.TabIndex = 33;
+            // 
+            // Run2
+            // 
+            this.Run2.Location = new System.Drawing.Point(89, 244);
+            this.Run2.Name = "Run2";
+            this.Run2.Size = new System.Drawing.Size(48, 23);
+            this.Run2.TabIndex = 36;
+            this.Run2.Text = "Run";
+            this.Run2.UseVisualStyleBackColor = true;
+            this.Run2.Click += new System.EventHandler(this.Run2_Click);
+            // 
+            // guideEpxilon
+            // 
+            this.guideEpxilon.Location = new System.Drawing.Point(8, 245);
+            this.guideEpxilon.Name = "guideEpxilon";
+            this.guideEpxilon.Size = new System.Drawing.Size(75, 23);
+            this.guideEpxilon.TabIndex = 33;
+            this.guideEpxilon.Text = "Guide";
+            this.guideEpxilon.UseVisualStyleBackColor = true;
+            this.guideEpxilon.Click += new System.EventHandler(this.guideEpxilon_Click);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(17, 221);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(100, 13);
+            this.label33.TabIndex = 35;
+            this.label33.Text = "không chứa epxilon";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(25, 88);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(77, 13);
+            this.label32.TabIndex = 34;
+            this.label32.Text = "sinh ra epxilon)";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(7, 74);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(119, 13);
+            this.label31.TabIndex = 33;
+            this.label31.Text = "(Kí hiệu không kết thúc";
             // 
             // label20
             // 
@@ -718,94 +781,149 @@
             this.label30.TabIndex = 24;
             this.label30.Text = "Bước 1";
             // 
-            // label31
+            // panel2
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(7, 74);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(119, 13);
-            this.label31.TabIndex = 33;
-            this.label31.Text = "(Kí hiệu không kết thúc";
+            this.panel2.BackColor = System.Drawing.Color.PeachPuff;
+            this.panel2.Controls.Add(this.label36);
+            this.panel2.Controls.Add(this.txtGNF);
+            this.panel2.Location = new System.Drawing.Point(960, 18);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(385, 375);
+            this.panel2.TabIndex = 34;
             // 
-            // label32
+            // label36
             // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(25, 88);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(77, 13);
-            this.label32.TabIndex = 34;
-            this.label32.Text = "sinh ra epxilon)";
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label36.Location = new System.Drawing.Point(140, 19);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(107, 25);
+            this.label36.TabIndex = 20;
+            this.label36.Text = "Greibach";
             // 
-            // label33
+            // panelLoaiTuS
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(17, 221);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(100, 13);
-            this.label33.TabIndex = 35;
-            this.label33.Text = "không chứa epxilon";
+            this.panelLoaiTuS.BackColor = System.Drawing.Color.PeachPuff;
+            this.panelLoaiTuS.Controls.Add(this.Run3);
+            this.panelLoaiTuS.Controls.Add(this.label35);
+            this.panelLoaiTuS.Controls.Add(this.label34);
+            this.panelLoaiTuS.Controls.Add(this.txtResult);
+            this.panelLoaiTuS.Location = new System.Drawing.Point(765, 427);
+            this.panelLoaiTuS.Name = "panelLoaiTuS";
+            this.panelLoaiTuS.Size = new System.Drawing.Size(278, 270);
+            this.panelLoaiTuS.TabIndex = 35;
             // 
-            // guideChomsky
+            // Run3
             // 
-            this.guideChomsky.Location = new System.Drawing.Point(9, 352);
-            this.guideChomsky.Name = "guideChomsky";
-            this.guideChomsky.Size = new System.Drawing.Size(75, 23);
-            this.guideChomsky.TabIndex = 19;
-            this.guideChomsky.Text = "Guide";
-            this.guideChomsky.UseVisualStyleBackColor = true;
-            this.guideChomsky.Click += new System.EventHandler(this.guideChomsky_Click);
+            this.Run3.Location = new System.Drawing.Point(90, 238);
+            this.Run3.Name = "Run3";
+            this.Run3.Size = new System.Drawing.Size(70, 23);
+            this.Run3.TabIndex = 37;
+            this.Run3.Text = "Run";
+            this.Run3.UseVisualStyleBackColor = true;
+            this.Run3.Click += new System.EventHandler(this.Run3_Click);
             // 
-            // guideInfertility
+            // label35
             // 
-            this.guideInfertility.Location = new System.Drawing.Point(9, 245);
-            this.guideInfertility.Name = "guideInfertility";
-            this.guideInfertility.Size = new System.Drawing.Size(75, 23);
-            this.guideInfertility.TabIndex = 20;
-            this.guideInfertility.Text = "Guide";
-            this.guideInfertility.UseVisualStyleBackColor = true;
-            this.guideInfertility.Click += new System.EventHandler(this.guideInfertility_Click);
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label35.Location = new System.Drawing.Point(26, 42);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(204, 25);
+            this.label35.TabIndex = 16;
+            this.label35.Text = "không sinh ra từ S";
             // 
-            // guideEpxilon
+            // label34
             // 
-            this.guideEpxilon.Location = new System.Drawing.Point(8, 245);
-            this.guideEpxilon.Name = "guideEpxilon";
-            this.guideEpxilon.Size = new System.Drawing.Size(75, 23);
-            this.guideEpxilon.TabIndex = 33;
-            this.guideEpxilon.Text = "Guide";
-            this.guideEpxilon.UseVisualStyleBackColor = true;
-            this.guideEpxilon.Click += new System.EventHandler(this.guideEpxilon_Click);
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label34.Location = new System.Drawing.Point(50, 13);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(160, 25);
+            this.label34.TabIndex = 15;
+            this.label34.Text = "Loại các kí tự ";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.PeachPuff;
+            this.panel1.Controls.Add(this.Run4);
+            this.panel1.Controls.Add(this.label38);
+            this.panel1.Controls.Add(this.textRun4);
+            this.panel1.Location = new System.Drawing.Point(1072, 427);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(278, 270);
+            this.panel1.TabIndex = 36;
+            // 
+            // Run4
+            // 
+            this.Run4.Location = new System.Drawing.Point(90, 238);
+            this.Run4.Name = "Run4";
+            this.Run4.Size = new System.Drawing.Size(75, 23);
+            this.Run4.TabIndex = 16;
+            this.Run4.Text = "Run";
+            this.Run4.UseVisualStyleBackColor = true;
+            this.Run4.Click += new System.EventHandler(this.Run4_Click);
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label38.Location = new System.Drawing.Point(15, 14);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(247, 25);
+            this.label38.TabIndex = 15;
+            this.label38.Text = "Loại suy dẫn trực tiếp ";
+            // 
+            // textRun4
+            // 
+            this.textRun4.Location = new System.Drawing.Point(61, 83);
+            this.textRun4.Multiline = true;
+            this.textRun4.Name = "textRun4";
+            this.textRun4.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textRun4.Size = new System.Drawing.Size(127, 149);
+            this.textRun4.TabIndex = 10;
+            // 
+            // Refresh
+            // 
+            this.Refresh.Location = new System.Drawing.Point(716, 398);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(75, 23);
+            this.Refresh.TabIndex = 37;
+            this.Refresh.Text = "Refresh";
+            this.Refresh.UseVisualStyleBackColor = true;
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
             // 
             // StartFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtGNF);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.txtResult);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.buttonMin);
-            this.Controls.Add(this.buttonOpenFile);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBoxFilePath);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBoxStandardized);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxInput);
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1370, 708);
+            this.Controls.Add(this.Refresh);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelLoaiTuS);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelLoaiEpxilon);
             this.Controls.Add(this.panelLoaiVoSinh);
             this.Controls.Add(this.panelInput);
             this.Controls.Add(this.panelChomsky);
             this.Name = "StartFrom";
-            this.Load += new System.EventHandler(this.StartFrom_Load);
             this.panelChomsky.ResumeLayout(false);
             this.panelChomsky.PerformLayout();
             this.panelInput.ResumeLayout(false);
             this.panelInput.PerformLayout();
             this.panelLoaiVoSinh.ResumeLayout(false);
             this.panelLoaiVoSinh.PerformLayout();
+            this.panelLoaiEpxilon.ResumeLayout(false);
+            this.panelLoaiEpxilon.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panelLoaiTuS.ResumeLayout(false);
+            this.panelLoaiTuS.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -821,10 +939,8 @@
         private System.Windows.Forms.TextBox textBoxFilePath;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonOpenFile;
-        private System.Windows.Forms.Button buttonMin;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtResult;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Greibach;
         private System.Windows.Forms.TextBox txtGNF;
         private System.Windows.Forms.Button Chomsky;
         private System.Windows.Forms.Panel panelChomsky;
@@ -849,7 +965,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button Greibach;
         private System.Windows.Forms.Panel panelLoaiVoSinh;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label15;
@@ -862,7 +977,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelLoaiEpxilon;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
@@ -880,6 +995,19 @@
         private System.Windows.Forms.Button guideChomsky;
         private System.Windows.Forms.Button guideInfertility;
         private System.Windows.Forms.Button guideEpxilon;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelLoaiTuS;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox textRun4;
+        private System.Windows.Forms.Button Run1;
+        private System.Windows.Forms.Button Run2;
+        private System.Windows.Forms.Button Run3;
+        private System.Windows.Forms.Button Run4;
+        private System.Windows.Forms.Button Refresh;
     }
 }
 
