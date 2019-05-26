@@ -436,6 +436,7 @@ namespace ContextFreeGrammar
             for (i = 0; i < notEpxilon.Count; i++) sNew = sNew + notEpxilon[i].Start + "->" + notEpxilon[i].End + System.Environment.NewLine;
             textBoxStep3Epxilon.Text = sNew;
 
+
         }
 
         // Phương thức tìm notEpxion.End
@@ -641,7 +642,7 @@ namespace ContextFreeGrammar
                 s = "";
             }
             ProgressSplit();
-            FindList_End_NotEnd();
+            //FindList_End_NotEnd();
             //DeleteInfertility();
             ConvertToChomsky();
         }
@@ -672,6 +673,4 @@ namespace ContextFreeGrammar
         }
         #endregion
     }
-
-
 }
